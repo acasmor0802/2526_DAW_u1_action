@@ -1,5 +1,91 @@
 # 1. Actividad: *GitHub Actions: entendiendo Workflow.*
 
+
+## a. Herramientas usadas para generar documentación y comandos ejecutados.
+
+He utilizado pdoc para hacer el html con el comando `python -m pdoc --html main.py -o docs/html`
+- básicamente hace que `python -m pdoc` se ejecuta pdoc en python.
+- `--html` le da el formato a la documentacion como html. 
+- `main.py` es el archivo que quiero documentar.
+- `-o docs/html` es el directorio donde sale la documentación.
+
+He utilizado pdoc para hacer el txt con el comando `python -m pydoc main > docs/main.txt`
+- `python -m pdoc` se ejecuta pdoc en python.
+- `main` selecciona el main.py como modulo.
+- `>` direcciona la salida del archivo.
+- `docs/main.txt` es donde se guarda el txt.
+
+## b. Ejemplos de código documentado (enlace al fuente) y fragmento con las etiquetas/estructura usadas docstrings, @param, @return, Kdoc, reStructuredText o Google Style, Estilo según JavaDoc.
+
+https://github.com/acasmor0802/2526_DAW_u1_action/blob/73b6a590a7bd93d7e6209103dbfd275bd85696de/main.py#L2-L10
+
+```python
+def saludo(nombre: str) -> str:
+    """
+    Saluda a una persona por su nombre.
+
+    Args:
+        nombre (str): Nombre de la persona.
+
+    Returns:
+        str: Saludo con nombre personalizado.
+    """
+    return f"Hola, {nombre}!" # Cambio para forzar error. Para que no falle: f"Hola, {nombre}!"
+```
+
+En esta parte, hago uso de docstrings ya que uso triples comillas, y hago uso de `Args:` y `Returns:` que son de Google Style.
+
+
+## c. Formatos generados (HTML + otro) y enlaces a cada uno.
+
+Se genera un HTML, y por otro lado se genera un txt.
+
+https://github.com/acasmor0802/2526_DAW_u1_action/actions/runs/18356655884
+
+
+## d. Explicación breve del workflow (pasos del job, eventos que lo disparan).
+
+Básicamente el workflow se divide en varias partes:
+
+- `name` con el nombre del workflow.
+- `on` en esta parte se va a ejecutar cuando se haga push en la rama main, o cuando se haga un pull request sobre main. Además, se puede ejecutar desde action.
+- `jobs` primero se dice donde se ejecuta, y posteriormente los pasos. Como descargar dependencias, o crear carpetas. Pero lo principal son los generar documentacion, y subirlos en un artefacto, que tendrá un nombre y un path.
+
+
+## e. Mensajes de commit que evidencien la mejora: claros, descriptivos, en imperativo.
+
+- automatizacion de documentacion con pdoc en html y txt
+- error en el test
+- codigo sin error
+
+
+## f. Evidencia de configuración SSH para GitHub (clave pública añadida, prueba ssh -T git@github.com).
+
+```bash
+PS C:\Users\usuario\Documents\git\2526_DAW_u1_action> ssh -T git@github.com
+Hi acasmor0802! You've successfully authenticated, but GitHub does not provide shell access.
+```
+![prueba visual](image.png)
+
+
+
+## g. Cómo clonar/usar el repositorio para reproducir la generación de documentación.
+
+### Pasos para usar el repositorio:
+#### 1. Pulsar el boton de actions en la parte superior de github.
+#### 2. Entrar en la seccion de la izquierda llamada "Generar Documentacion".
+#### 3. Pulsar el boton llamado "Run workflow".
+#### 4. Descargar los archivos.
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 🎯 Objetivos de aprendizaje
 
 * Comprender la estructura de un workflow (`on`, `jobs`, `steps`).
