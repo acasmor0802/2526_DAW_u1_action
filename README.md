@@ -10,7 +10,7 @@ He utilizado pdoc para hacer el html con el comando `python -m pdoc --html main.
 - `-o docs/html` es el directorio donde sale la documentación.
 
 He utilizado pdoc para hacer el txt con el comando `python -m pydoc main > docs/main.txt`
-- `python -m pdoc` se ejecuta pdoc en python.
+- `python -m pydoc` se ejecuta pydoc en python.
 - `main` selecciona el main.py como modulo.
 - `>` direcciona la salida del archivo.
 - `docs/main.txt` es donde se guarda el txt.
